@@ -11,43 +11,70 @@
 <body>
   <div id="map"></div>
 
+  <button id="overlayToggle">toggle overlay</button>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-  <script src = "Leaflet.ImageOverlay.Rotated.js"></script>
+  <script src="Leaflet.ImageOverlay.Rotated.js"></script>
   <script type="text/javascript">
-    
     var map = L.map('map').setView([53.3498, -6.2603], 11); // Dublin
- L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
-    }).addTo(map);   
+    }).addTo(map);
 
-    var point1 = L.latLng(53.36690,-6.30683),
-		  point2 = L.latLng(53.35956,-6.22052),
-		  point3 = L.latLng(53.32750,-6.31616);
+    var markerLayer = L.layerGroup(); // create layer group for markers
 
-    var marker1 = L.marker(point1).addTo(map),
-		  marker2 = L.marker(point2).addTo(map),
-		  marker3 = L.marker(point3).addTo(map);
-      marker1.setOpacity(0);
-      marker2.setOpacity(0);
-      marker3.setOpacity(0);
- 
+    $.getJSON('test.geojson', function(data) {
+      L.geoJSON(data, {
+        pointToLayer: function(feature, latlng) {
+          var coordinates = feature.geometry.coordinates;
+          var marker = L.marker([coordinates[0], coordinates[1]]).bindPopup('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.text + '</p><img src="' + feature.properties.image + '">');
+          marker.addTo(markerLayer); // add marker to marker layer group
+          return marker;
+        }
+      }).addTo(map);
+    });
 
-    var	bounds = new L.LatLngBounds(point1, point2).extend(point3);
+    var point1 = L.latLng(53.36690, -6.30683),
+      point2 = L.latLng(53.35956, -6.22052),
+      point3 = L.latLng(53.32750, -6.31616);
 
-		map.fitBounds(bounds);
+    var marker1 = L.marker(point1),
+      marker2 = L.marker(point2),
+      marker3 = L.marker(point3);
+    marker1.addTo(markerLayer); // add markers to marker layer group
+    marker2.addTo(markerLayer);
+    marker3.addTo(markerLayer);
+    marker1.setOpacity(0);
+    marker2.setOpacity(0);
+    marker3.setOpacity(0);
+
+    var bounds = new L.LatLngBounds(point1, point2).extend(point3);
+    //map.fitBounds(bounds);
 
     var overlay = L.imageOverlay.rotated("dublin1883.jpg", point1, point2, point3, {
-			opacity: 1,
-			interactive: true,
-			attribution: "Historical building plan &copy; <a href='http://www.ign.es'>Instituto Geográfico Nacional de España</a>"
-		});
-		
-		function repositionImage() {
-			overlay.reposition(marker1.getLatLng(), marker2.getLatLng(), marker3.getLatLng());
-		};
-		
-		map.addLayer(overlay);
+      opacity: 1,
+      interactive: true,
+      attribution: "Historical building plan &copy; <a href='http://www.ign.es'>Instituto Geográfico Nacional de España</a>"
+    });
 
+    function repositionImage() {
+      overlay.reposition(marker1.getLatLng(), marker2.getLatLng(), marker3.getLatLng());
+    }
+
+    map.addLayer(overlay);
+    map.addLayer(markerLayer); // add marker layer group to map
+
+    var overlayToggleBtn = document.getElementById('overlayToggle');
+    overlayToggleBtn.addEventListener('click', function () {
+      if (map.hasLayer(overlay)) {
+        map.removeLayer(overlay);
+        map.removeLayer(markerLayer); // remove marker layer group
+      } else {
+        map.addLayer(overlay);
+        map.addLayer(markerLayer); // add marker layer group
+      }
+    });
   </script>
 </body>
 </html>
