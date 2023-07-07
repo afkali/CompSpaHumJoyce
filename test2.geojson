@@ -1,0 +1,17 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [53.35068,-6.27253]
+        },
+        "properties": {
+          "title": "Collins Barracks",
+          "text": "Two of the four wings of the massive Royal (now Collins) Barracks, photographed in 2019.",
+          "image": "Cyclops/Linenhall_barracks_MarlboroughBarracks.jpg"
+        }
+      }
+    ]
+  }

@@ -1,0 +1,18 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [53.35068,-6.27253]
+        },
+        "properties": {
+          "title": "Linenhill Barracks",
+          "text": "As the capital of a subjugated nation with a long history of rebellion, Dublin in 1904 was quite literally ringed with military barracks",
+          "image": "Cyclops/Linenhall_barracks_MarlboroughBarracks.jpg"
+        }
+      }
+    ]
+  }
+  
