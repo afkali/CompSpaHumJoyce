@@ -12,6 +12,30 @@
           "text": "As the capital of a subjugated nation with a long history of rebellion, Dublin in 1904 was quite literally ringed with military barracks",
           "image": "Cyclops/Linenhall_barracks_MarlboroughBarracks.jpg"
         }
+      }, 
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [ 53.34186,-6.25053]
+        },
+        "properties": {
+          "title": "Sweny's Pharmacy",
+          "text": "In 1904, James Joyce consulted with Sweny for his novel Ulysses. Here the fictional character Mr Bloom picks up his lucky charm – a lemon soap.",
+          "image": "Sweny_Pharmacy_Dublin_Joyce_Front_MG_31622.jpeg"
+        }
+      }, 
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [53.34844,-6.25726]
+        },
+        "properties": {
+          "title": "Abby Theater",
+          "text": "Also known as the National Theater of Irland this institution was founded in 1904 by W.B. Yeats and Lady Gregory “to bring upon the stage the deeper emotions of Ireland”. In the first chapter, Telemachus Milligan refers to the so-called Irish Literary Revival. ",
+          "image": "A_new_art_colour_for_our_Irish_poets__snotgreen._AbbeyTheatre.png"
+        }
       }
     ]
   }
