@@ -1,0 +1,17 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [ 53.34186,-6.25053]
+        },
+        "properties": {
+          "title": "Sweny's Pharmacy",
+          "text": "In 1904, James Joyce consulted with Sweny for his novel Ulysses. Here the fictional character Mr Bloom picks up his lucky charm – a lemon soap.",
+          "image": "Sweny_Pharmacy_Dublin_Joyce_Front_MG_31622.jpeg"
+        }
+      }
+    ]
+  }

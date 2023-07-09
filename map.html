@@ -6,6 +6,10 @@
     #map {
       height: 800px;
     }
+
+    .leaflet-popup-content {
+width:auto !important;
+}
   </style>
 </head>
 <body>
@@ -17,7 +21,9 @@
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script src="Leaflet.ImageOverlay.Rotated.js"></script>
   <script type="text/javascript">
-    var map = L.map('map').setView([53.3498, -6.2603], 11); // Dublin
+
+
+    var map = L.map('map').setView([53.3498, -6.2603], 13); // Dublin
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
     }).addTo(map);
@@ -34,6 +40,29 @@
         }
       }).addTo(map);
     });
+
+    $.getJSON('pharmacy.geojson', function(data) {
+      L.geoJSON(data, {
+        pointToLayer: function(feature, latlng) {
+          var coordinates = feature.geometry.coordinates;
+          var marker= L.marker([coordinates[0], coordinates[1]]).bindPopup('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.text + '</p><img src="' + feature.properties.image + '">');
+          marker.addTo(markerLayer); // add marker to marker layer group
+          return marker;
+        }
+      }).addTo(map);
+    });
+
+    $.getJSON('abbyTheater.geojson', function(data) {
+      L.geoJSON(data, {
+        pointToLayer: function(feature, latlng) {
+          var coordinates = feature.geometry.coordinates;
+          var marker66 = L.marker([coordinates[0], coordinates[1]]).bindPopup('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.text + '</p><img src="' + feature.properties.image + '">');
+          marker66.addTo(markerLayer); // add marker to marker layer group
+          return marker66;
+        }
+      }).addTo(map);
+    })
+
 
     var point1 = L.latLng(53.36690, -6.30683),
       point2 = L.latLng(53.35956, -6.22052),
