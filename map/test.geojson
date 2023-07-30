@@ -1,0 +1,83 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [53.35068,-6.27253]
+      },
+      "properties": {
+        "layerType": "Dublin 1883",
+        "title": "Linenhill Barracks",
+        "text": "As the capital of a subjugated nation with a long history of rebellion, Dublin in 1904 was quite literally ringed with military barracks",
+        "image": "Cyclops/Linenhall_barracks_MarlboroughBarracks.jpg"
+      }
+    }, 
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [ 53.34186,-6.25053]
+      },
+      "properties": {
+        "layerType": "Dublin 1883",
+        "title": "Sweny's Pharmacy",
+        "text": "In 1904, James Joyce consulted with Sweny for his novel Ulysses. Here the fictional character Mr Bloom picks up his lucky charm – a lemon soap.",
+        "image": "Circe/Sweny_Pharmacy_Dublin_Joyce_Front_MG_31622.jpeg"
+      }
+    }, 
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [53.34844,-6.25726]
+      },
+      "properties": {
+        "layerType": "Dublin 1883",
+        "title": "Abby Theater",
+        "text": "Also known as the National Theater of Ireland this institution was founded in 1904 by W.B. Yeats and Lady Gregory “to bring upon the stage the deeper emotions of Ireland”. In the first chapter, Telemachus Milligan refers to the so-called Irish Literary Revival. ",
+        "image": "Telemachus/A_new_art_colour_for_our_Irish_poets__snotgreen._AbbeyTheatre.png" 
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [53.34844,-6.25726]
+      },
+      "properties": {
+        "layerType": "Overlay 2",
+        "title": "Abby Theater",
+        "text": "'what is my purpose?' 'to test overlay 2.' 'oh my god'",
+        "image": "Telemachus/A_new_art_colour_for_our_Irish_poets__snotgreen._AbbeyTheatre.png" 
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates":[53.2859,-6.1155]
+      },
+      "properties": {
+        "layerType": "Dublin 1883",
+        "title": "Mortello Tower Sandycove",
+        "text": "The novel's first action, 'Buck Mulligan came from the stairhead,' situates the reader on the roof of a small military tower in Sandycove, seven miles from Dublin on the southeastern shores of Dublin Bay.",
+        "image": "Telemachus/martello-tower-sandycove-1.webp" 
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates":[53.2859,-6.1155]
+      },
+      "properties": {
+        "layerType": "OpenStreetMap",
+        "title": "Mortello Tower Sandycove",
+        "text": "I'm only here for testing porpuses. my existence is limited and sad. (openstreetmap layer)",
+        "image": "Telemachus/martello-tower-sandycove-1.webp" 
+      }
+    }
+  ]
+}

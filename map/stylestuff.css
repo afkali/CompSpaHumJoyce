@@ -1,0 +1,8 @@
+#map {
+    height: 750px;
+  }
+  
+  .leaflet-popup-content {
+    width: auto !important;
+  }
+  
