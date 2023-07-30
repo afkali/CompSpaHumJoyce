@@ -96,7 +96,7 @@ map.on('overlayremove', function (eventLayer) {
   }
 });
 
-// event listener to show/hide dynamic markers when using base layer
+// event listener to show/hide markers when using base layer
 map.on('baselayerchange', function (eventLayer) {
   if (eventLayer.name === 'OpenStreetMap') {
     if (!map.hasLayer(overlay) && !map.hasLayer(overlay2)) {
