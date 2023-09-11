@@ -49,7 +49,11 @@ $.getJSON('test.geojson', function(data) {
 
 var point1 = L.latLng(53.36690, -6.30683),
   point2 = L.latLng(53.35956, -6.22052),
-  point3 = L.latLng(53.32750, -6.31616);
+  point3 = L.latLng(53.32750, -6.31616),
+  point4 = L.latLng(53.36945, -6.31796),
+  point5 = L.latLng (53.3694, -6.21552),
+  point6 = L.latLng (53.33332, -6.31977);
+
 
 var overlay = L.imageOverlay.rotated("dublin1883.jpg", point1, point2, point3, {
   opacity: 1,
@@ -57,8 +61,9 @@ var overlay = L.imageOverlay.rotated("dublin1883.jpg", point1, point2, point3, {
   attribution: "Historical building plan &copy; <a href='http://www.ign.es'>Instituto Geográfico Nacional de España</a>"
 });
 
+
 // in case we want to stick to the current overlay logic. the rest of the code should be easily adaptable in case we change it
-var overlay2 = L.imageOverlay.rotated("overlay2.jpg", point1, point2, point3, {
+var overlay2 = L.imageOverlay.rotated("Dublin1900.jpg", point4, point5, point6, {
   opacity: 1,
   interactive: true,
   attribution: "stuff for overlay 2"
