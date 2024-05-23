@@ -24,13 +24,13 @@ var overlay2Layer = L.geoJSON(null, {
 
 var markerLayerBase = L.layerGroup(); // create layer group for base map markers
 
-$.getJSON('test.geojson', function(data) {
+$.getJSON('places.geojson', function(data) {
   data.features.forEach(function(feature) {
     var layerType = feature.properties.layerType; // now we need to put even more stuff in the geojson, yaaay....
 
     if (layerType === 'Dublin 1883') {
       dublin1883.addData(feature);
-    } else if (layerType === 'Overlay 2') {
+    } else if (layerType === 'Dublin 1904') {
       overlay2Layer.addData(feature);
     }
 

@@ -8,14 +8,14 @@ from spacy.tokens import DocBin
 import spacy.cli
 from sklearn.model_selection import train_test_split
 
-df = pd.read_csv('NLP/prepare.tsv', delimiter='\t')
+df = pd.read_csv('NLP/may24.tsv', delimiter='\t')
 
 TRAIN_DATA = []
 
 # iterate over rows and format data
 for index, row in df.iterrows():
-    text = row['street_name']
-    start, end, entity_type = eval(row['new_col']) 
+    text = row['name']
+    start, end, entity_type = eval(row['loc_col']) 
     entities = [(start, end, entity_type)]
     formatted_data = (text, {"entities": entities})
     TRAIN_DATA.append(formatted_data)
