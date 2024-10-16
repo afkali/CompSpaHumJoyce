@@ -8,7 +8,7 @@ from spacy.tokens import DocBin
 import spacy.cli
 from sklearn.model_selection import train_test_split
 
-df = pd.read_csv('NLP/may24.tsv', delimiter='\t')
+df = pd.read_csv('NLP/last.csv')
 
 TRAIN_DATA = []
 
@@ -57,5 +57,7 @@ create base_config file, then:
 python -m spacy init fill-config base_config.cfg config.cfg
 train model:
 python -m spacy train config.cfg --output ./NLP
+# python -m spacy train config.cfg --paths.train C:/Users/husem/OneDrive/Dokumente/GitHub/CompSpaHumJoyce/NLP/train_dublin_streets.spacy --paths.dev C:/Users/husem/OneDrive/Dokumente/GitHub/CompSpaHumJoyce/NLP/validation_dublin_streets.spacy
+
 
 '''
