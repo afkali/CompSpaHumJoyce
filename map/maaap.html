@@ -8,6 +8,8 @@
   <script src="Leaflet.ImageOverlay.Rotated.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
   <link rel="stylesheet" href="stylestuff.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
   <title>Deep Mapping Dublin</title>
   <style>
     body {
@@ -76,13 +78,29 @@ $(document).ready(function () {
   });
   openStreetMapLayer.addTo(map);
 
+  //icons
+  const Icon_1883 = L.icon({
+    iconUrl: 'location-dot-solid_red.svg',
+    iconSize: [30, 30], 
+});
+
+const Icon_1904 = L.icon({
+    iconUrl: 'location-dot-solid_black.svg',
+    iconSize: [30, 30], 
+});
+
+const Icon_modern = L.icon({
+    iconUrl: 'location-dot-solid_blue.svg',
+    iconSize: [30, 30], 
+});
+
   var selectedFeature = null;
   var activeLayer = 'Dublin 1883';
 
   var dublin1883 = L.geoJSON(null, {
     pointToLayer: function(feature, latlng) {
       var coordinates = feature.geometry.coordinates;
-      var marker = L.marker([coordinates[0], coordinates[1]]);
+      var marker = L.marker([coordinates[0], coordinates[1]], {icon: Icon_1883});
 
       marker.on('click', function() {
         selectedFeature = feature;
@@ -96,7 +114,7 @@ $(document).ready(function () {
   var overlay2Layer = L.geoJSON(null, {
     pointToLayer: function(feature, latlng) {
       var coordinates = feature.geometry.coordinates;
-      var marker = L.marker([coordinates[0], coordinates[1]]);
+      var marker = L.marker([coordinates[0], coordinates[1]], {icon: Icon_1904});
 
       marker.on('click', function() {
         selectedFeature = feature;
@@ -121,7 +139,7 @@ $(document).ready(function () {
 
       if (layerType === 'OpenStreetMap') {
         var coordinates = feature.geometry.coordinates;
-        var marker = L.marker([coordinates[0], coordinates[1]]);
+        var marker = L.marker([coordinates[0], coordinates[1]], {icon: Icon_modern});
 
         marker.on('click', function() {
           selectedFeature = feature;
