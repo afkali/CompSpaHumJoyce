@@ -16,19 +16,26 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
     }
     header {
       text-align: center;
-      background-color: #f4f4f4;
+      background-color: #614427;
+      color: #d4c6b9;
       padding: 20px;
-      font-size: 24px;
+      font-size: 28px;
       font-weight: bold;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      
     }
     .text-top {
       padding: 20px;
-      background-color: #e0e0e0;
+      background-color: #806448;
+      color: #d4c6b9;
       font-size: 18px;
       text-align: center;
+      line-height: 1.5;
     }
     .container {
       display: flex;
@@ -36,8 +43,16 @@
     }
     .left {
       width: 25%;
-      background-color: #f0f0f0;
+      background-color: #d8d5d1;
       padding: 20px;
+      box-shadow: 2px 0px 6px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+    }
+
+    .left p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #4b3621; 
     }
     .right {
       width: 80%;
@@ -51,7 +66,7 @@
       max-width: 100%;  
       height: auto;    
       display: block;
-      margin: 10px auto; 
+      margin: 10px auto;  
 }
   </style>
 </head>
@@ -67,7 +82,10 @@ Deep Mapping Dublin - from the past to the present with Ulysses
 
 <div class="container">
   <div class="left" id="info-panel">
-    <p>pop up stuff</p>
+    <!--<p>pop up stuff</p> -->
+    <h3>Welcome to Deep Mapping Dublin</h3>
+    <p>Please select a location on the map to see details.</p>
+    <img src="images/joyce_quote.jpeg" class="default_img" alt="Quote">
   </div>
   <div class="right">
     <div id="map"></div>
@@ -76,7 +94,7 @@ Deep Mapping Dublin - from the past to the present with Ulysses
 
 <script>
 $(document).ready(function () {
-  var map = L.map('map').setView([53.3498, -6.2603], 13); 
+  var map = L.map('map', {maxBounds: bounds}).setView([53.3498, -6.2603], 13); 
 
   var openStreetMapLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
@@ -226,14 +244,25 @@ const Icon_modern = L.icon({
 
         $('#info-panel').html(content);
       } else {
-        $('#info-panel').html('<p>Select a marker to see details.</p>');
+        //$('#info-panel').html('<p>Select a marker to see details.</p>');
+        var defaultContent  = '<h3>Welcome to Deep Mapping Dublin</h3>'+
+                            '<p>Please select a location on the map to see details.</p>'+
+                          '<img src="images/joyce_quote.jpeg" class="default_img" alt="Quote">';
+      $('#info-panel').html(defaultContent);
         selectedFeature = null;
       }
     } else {
-      $('#info-panel').html('<p>Select a marker to see details.</p>');
+      //$('#info-panel').html('<p>Select a marker to see details.</p>');
+      var defaultContent  = '<h3>Welcome to Deep Mapping Dublin</h3>'+
+                            '<p>Please select a location on the map to see details.</p>'+
+                          '<img src="images/joyce_quote.jpeg" class="default_img" alt="Quote">';
+      $('#info-panel').html(defaultContent);
     }
   }
 });
+var corner1 = L.latLng(53.447862, -6.569103),
+corner2 = L.latLng(53.226708, -5.966233),
+bounds = L.latLngBounds(corner1, corner2);
 
 
 </script>
