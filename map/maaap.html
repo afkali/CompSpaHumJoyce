@@ -94,7 +94,7 @@ Deep Mapping Dublin - from the past to the present with Ulysses
 
 <script>
 $(document).ready(function () {
-  var map = L.map('map', {maxBounds: bounds}).setView([53.3498, -6.2603], 13); 
+  var map = L.map('map', {maxBounds: bounds, maxZoom: 17, minZoom:12}).setView([53.3498, -6.2603], 12); 
 
   var openStreetMapLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
